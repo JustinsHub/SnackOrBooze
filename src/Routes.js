@@ -3,8 +3,12 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Menu from "./FoodMenu";
 import Snack from "./FoodItem";
+import Drinks from './DrinkMenu'
 import SnackContext from './SnackContext'
+import NotFound from './NotFound'
 
+
+//document
 const Routes = () => {
     const snacks = useContext(SnackContext)
     return (
@@ -19,8 +23,11 @@ const Routes = () => {
         <Route path="/snacks/:id">
             <Snack items={snacks} cantFind="/snacks" />
         </Route>
+        <Route exact path="/drinks">
+            <Drinks/>
+        </Route>
         <Route>
-            <p>Hmmm. I can't seem to find what you want.</p>
+            <NotFound/>
         </Route>
         </Switch>
     </main>
