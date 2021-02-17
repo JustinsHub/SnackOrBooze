@@ -3,6 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Menu from "./FoodMenu";
 import MenuChoices from "./MenuChoices";
+import DrinkMenu from './DrinkMenu'
+import Drink from './Drink'
 import SnackOrBoozeContext from './SnackOrBoozeContext'
 import NotFound from './NotFound'
 
@@ -17,16 +19,16 @@ const Routes = () => {
             <Home snacks={snacks} drinks={drinks} />
         </Route>
         <Route exact path="/snacks">
-            <Menu snacks={snacks} drinks={drinks} title="Snacks" />
+            <Menu snacks={snacks} title="Snacks" />
         </Route>
         <Route path="/snacks/:id">
-            <MenuChoices snacks={snacks} drinks={drinks} cantFind="/snacks" />
+            <MenuChoices snacks={snacks} cantFind="/snacks" />
         </Route>
         <Route exact path="/drinks">
-            <Menu snacks={snacks} drinks={drinks} title="Drinks" />
+            <DrinkMenu drinks={drinks}/>
         </Route>
         <Route path="/drinks/:id">
-            <MenuChoices snacks={snacks} drinks={drinks} cantFind="/drinks" />
+            <Drink drinks={drinks} cantFind="/drinks" />
         </Route>
         <Route>
             <NotFound/>
