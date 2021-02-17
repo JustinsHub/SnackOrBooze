@@ -10,17 +10,16 @@ import {
   ListGroupItem
 } from "reactstrap";
 
-function FoodMenu({ snacks }) {
+function FoodMenu({ snacks, drinks }) {
   return (
-    <section className="col-md-4">
+    <section className="col-md-4"> 
       <Card>
         <CardBody>
           <CardTitle className="font-weight-bold text-center">
             Food Menu
           </CardTitle>
           <CardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            Some food for you?
           </CardText>
           <ListGroup>
             {snacks.map(snack => (
@@ -30,7 +29,27 @@ function FoodMenu({ snacks }) {
             ))}
           </ListGroup>
         </CardBody>
-      </Card>
+      </Card> 
+    
+      <Card>
+      <CardBody>
+        <CardTitle className="font-weight-bold text-center">
+          Drink Menu
+        </CardTitle>
+        <CardText>
+          Some drinks for you?
+        </CardText>
+        <ListGroup>
+          {drinks.map(drink => (
+            <Link to={`/drinks/${drink.id}`} key={drink.id}>
+              <ListGroupItem>{drink.name}</ListGroupItem>
+            </Link>
+          ))}
+        </ListGroup>
+      </CardBody>
+    </Card>
+    
+      
     </section>
   );
 }

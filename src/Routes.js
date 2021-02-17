@@ -2,29 +2,31 @@ import React, {useContext} from 'react'
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Menu from "./FoodMenu";
-import Snack from "./FoodItem";
-import Drinks from './DrinkMenu'
-import SnackContext from './SnackContext'
+import MenuChoices from "./MenuChoices";
+import SnackOrBoozeContext from './SnackOrBoozeContext'
 import NotFound from './NotFound'
 
 
 //document
 const Routes = () => {
-    const snacks = useContext(SnackContext)
+    const {snacks, drinks} = useContext(SnackOrBoozeContext)
     return (
         <main>
         <Switch>
         <Route exact path="/">
-            <Home snacks={snacks} />
+            <Home snacks={snacks} drinks={drinks} />
         </Route>
         <Route exact path="/snacks">
-            <Menu snacks={snacks} title="Snacks" />
+            <Menu snacks={snacks} drinks={drinks} title="Snacks" />
         </Route>
         <Route path="/snacks/:id">
-            <Snack items={snacks} cantFind="/snacks" />
+            <MenuChoices snacks={snacks} drinks={drinks} cantFind="/snacks" />
         </Route>
         <Route exact path="/drinks">
-            <Drinks/>
+            <Menu snacks={snacks} drinks={drinks} title="Drinks" />
+        </Route>
+        <Route path="/drinks/:id">
+            <MenuChoices snacks={snacks} drinks={drinks} cantFind="/drinks" />
         </Route>
         <Route>
             <NotFound/>
