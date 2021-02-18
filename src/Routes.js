@@ -5,13 +5,14 @@ import Menu from "./FoodMenu";
 import MenuChoices from "./MenuChoices";
 import DrinkMenu from './DrinkMenu'
 import Drink from './Drink'
+import AddMenu from './AddMenu'
 import SnackOrBoozeContext from './SnackOrBoozeContext'
 import NotFound from './NotFound'
 
 
 //snacks and drinks context api's passed down to each particular use for the value on each component
 const Routes = () => {
-    const {snacks, drinks} = useContext(SnackOrBoozeContext)
+    const {snacks, drinks, addSnacks} = useContext(SnackOrBoozeContext)
     return (
         <main>
         <Switch>
@@ -29,6 +30,9 @@ const Routes = () => {
         </Route>
         <Route path="/drinks/:id">
             <Drink drinks={drinks} cantFind="/drinks" />
+        </Route>
+        <Route exact path="/add-items">
+            <AddMenu addItem={addSnacks} />
         </Route>
         <Route>
             <NotFound/>

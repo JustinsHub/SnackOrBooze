@@ -10,6 +10,10 @@ const SnackWrapper = ({children}) => {
     const [snacks, setSnacks] = useState([]);
     const [drinks, setDrinks] = useState([])
 
+    const addSnacks = (item) => {
+        setSnacks(snack => [...snack, {...item}])
+    }
+
 //makes 2 api requests for snacks and drinks using Api.js static class methods
 //sets both snacks and drinks data in their arrays
 useEffect(() => {
@@ -29,7 +33,7 @@ if (isLoading) {
 }
     //Api values passed down to our created context wrapper
     return (
-        <SnackOrBoozeContext.Provider value={{snacks, drinks}}>
+        <SnackOrBoozeContext.Provider value={{snacks, drinks, addSnacks}}>
         {children}
         </SnackOrBoozeContext.Provider>
     )
