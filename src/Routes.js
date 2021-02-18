@@ -9,7 +9,7 @@ import SnackOrBoozeContext from './SnackOrBoozeContext'
 import NotFound from './NotFound'
 
 
-//document
+//snacks and drinks context api's passed down to each particular use for the value on each component
 const Routes = () => {
     const {snacks, drinks} = useContext(SnackOrBoozeContext)
     return (

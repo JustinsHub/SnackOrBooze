@@ -10,6 +10,9 @@ ListGroup,
 ListGroupItem
 } from "reactstrap";
 
+
+//Takes drinks as props and maps through the state to show API data to the UI having links 
+//leading to more information about that drink
 const DrinkMenu = ({drinks}) => {
     return (
         <section>

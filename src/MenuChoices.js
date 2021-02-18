@@ -2,13 +2,15 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
-function MenuChoices({ snacks, drinks, cantFind }) {
+function MenuChoices({ snacks }) {
+  //useParams looks for id URL parameter on /snacks route
   const { id } = useParams();
 
+  //matches if the param id is the same as the snack id(name of snack). 
   const food = snacks.find(snack => snack.id === id)
   if(!food ) return <Redirect to="/"/>
   
-
+  //returns detailed information about the snack
   return (
     <section>
       <Card>

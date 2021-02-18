@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-function Home({snacks, drinks}) {
+//Home takes snacks and drinks props as the API to map through what snacks/drinks are available to the UI
+const Home = ({snacks, drinks}) => {
   return (
     <section className="col-md-8">
       <Card>

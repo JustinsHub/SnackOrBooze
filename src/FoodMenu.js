@@ -10,6 +10,8 @@ import {
   ListGroupItem
 } from "reactstrap";
 
+//Takes snacks as props and maps through the state to show API data to the UI
+//Each snack link directs user to more information about the snack
 function FoodMenu({ snacks }) {
   return (
     <section className="col-md-4"> 
