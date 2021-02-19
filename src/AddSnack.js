@@ -1,14 +1,16 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import useFormHandle from './custom-hooks/useFormHandle'
 import './AddMenu.css'
 
-const AddMenu = ({addItem}) => {
+const AddSnack = ({addItem}) => {
+    const history = useHistory()
     const INITIAL_DATA = {
         id: "",
         name: "",
         description: "", 
         recipe: "",
-        server: ""
+        serve: ""
     }
     const [formData, setFormData, handleChange] = useFormHandle(INITIAL_DATA)
 
@@ -16,13 +18,13 @@ const AddMenu = ({addItem}) => {
         e.preventDefault()
         addItem(formData)
         setFormData(INITIAL_DATA)
+        history.push('/snacks')
     }
-
 
     return (
         <section className="text-center">
             <form className="AddMenu-form-bg"onSubmit={handleSubmit}>
-            <h1 className="AddMenu-h1">Add a Snack or Drink</h1>
+            <h1 className="AddMenu-h1">Add a Snack</h1>
             <div className="m-1">
             <label htmlFor="id"></label>
             <input
@@ -72,13 +74,13 @@ const AddMenu = ({addItem}) => {
             </div>
 
             <div className="m-1">
-            <label htmlFor="server"></label>
+            <label htmlFor="serve"></label>
             <input
-            id="server"
+            id="serve"
             type="text"
-            name="server"
-            value={formData.server}
-            placeholder="Server"
+            name="serve"
+            value={formData.serve}
+            placeholder="How is it served?"
             onChange={handleChange}
             />
             </div>
@@ -91,4 +93,4 @@ const AddMenu = ({addItem}) => {
     )
 }
 
-export default AddMenu
+export default AddSnack

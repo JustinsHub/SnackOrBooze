@@ -8,10 +8,14 @@ const SnackWrapper = ({children}) => {
     //Have loading state for UI purposes
     const [isLoading, setIsLoading] = useState(true);
     const [snacks, setSnacks] = useState([]);
-    const [drinks, setDrinks] = useState([])
+    const [drinks, setDrinks] = useState([]);
 
     const addSnacks = (item) => {
         setSnacks(snack => [...snack, {...item}])
+    }
+
+    const addDrinks= (item) => {
+        setDrinks(drink => [...drink, {...item}])
     }
 
 //makes 2 api requests for snacks and drinks using Api.js static class methods
@@ -33,7 +37,7 @@ if (isLoading) {
 }
     //Api values passed down to our created context wrapper
     return (
-        <SnackOrBoozeContext.Provider value={{snacks, drinks, addSnacks}}>
+        <SnackOrBoozeContext.Provider value={{snacks, drinks, addSnacks, addDrinks}}>
         {children}
         </SnackOrBoozeContext.Provider>
     )

@@ -33,6 +33,9 @@ const DrinkMenu = ({drinks}) => {
         </ListGroup>
         </CardBody>
     </Card>
+    <Link to="/add-drink">
+    <button>Add Drink</button>
+    </Link>
         </section>
     )
 }

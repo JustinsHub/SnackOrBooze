@@ -32,7 +32,7 @@ function FoodMenu({ snacks }) {
           </ListGroup>
         </CardBody>
       </Card> 
-      <Link to="/add-items">
+      <Link to="/add-snack">
       <button>Add a snack</button>
       </Link>
       
